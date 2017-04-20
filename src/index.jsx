@@ -5,6 +5,8 @@ import { green500, green700 } from 'material-ui/styles/colors'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { Router, hashHistory } from 'react-router'
 
+import './index.css'
+
 import routes from './routes'
 
 

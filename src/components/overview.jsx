@@ -1,10 +1,12 @@
 import React from "react"
+import {AppBar} from 'material-ui'
 
 export default class Overview extends React.Component {
   render(){
     return(
       <div>
-        <h1>An-yang</h1>
+        <AppBar title="Eurofurence" />
+        <p>anyang</p>
       </div>
     )
   }

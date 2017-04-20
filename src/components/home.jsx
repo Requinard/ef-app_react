@@ -4,7 +4,8 @@ import {hashHistory} from 'react-router'
 
 export const Home = props => (
   <GridList cols={3}>
-    <GridTile title="Events"/>
+    <GridTile title="Events"
+    onTouchTap={() => hashHistory.push('/event')}/>
     <GridTile title="Dealers"
     onTouchTap={() => hashHistory.push('/dealer')}/>
     <GridTile title="Knowledge"

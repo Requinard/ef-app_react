@@ -12,11 +12,17 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.jsx', '.js'],
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'src'),
+  },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.jsx?/,
-        include: APP_DIR,
         loader: 'babel-loader'
       }
     ]

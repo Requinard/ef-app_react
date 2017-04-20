@@ -1,6 +1,6 @@
-import React from "react"
-import {AppBar} from 'material-ui'
-
+import React from 'react'
+import { AppBar } from 'material-ui'
+import { hashHistory } from 'react-router'
 const contentStyle = {
   display: 'flex',
   width: '100%',
@@ -14,10 +14,11 @@ const contentInner = {
 }
 
 export default class Overview extends React.Component {
-  render(){
-    return(
+  render () {
+    return (
       <div>
-        <AppBar title="Eurofurence" />
+        <AppBar title="Eurofurence"
+                onLeftIconButtonTouchTap={() => hashHistory.push('/')}/>
         <div style={contentStyle}>
           <div style={contentInner}>
             {this.props.children}

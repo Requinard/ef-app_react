@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, CardHeader, CardMedia, CardText } from 'material-ui'
 import ImageContainer from '../image/imageContainer'
+import PropTypes from 'prop-types'
+
 export const EventItem = props => (
   <Card>
     <CardHeader title={`${props.event.Title}: ${props.event.Subtitle || ''}`}
@@ -15,3 +17,14 @@ export const EventItem = props => (
     </CardText>
   </Card>
 )
+
+EventItem.propTypes = {
+  event: PropTypes.shape({
+    Description: PropTypes.string,
+    StartTime: PropTypes.string,
+    EndTime: PropTypes.string,
+    Title: PropTypes.string,
+    SubTitle: PropTypes.string,
+    ImageId: PropTypes.string
+  })
+}

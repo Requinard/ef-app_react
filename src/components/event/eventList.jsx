@@ -31,8 +31,12 @@ class EventList extends React.Component {
 }
 
 EventList.propTypes = {
-  events: PropTypes.array,
-  days: PropTypes.array,
+  events: PropTypes.arrayOf(PropTypes.shape({
+    ConferenceDayId: PropTypes.string
+  })),
+  days: PropTypes.arrayOf(PropTupes.shape({
+    Id: PropTypes.string
+  })),
   fetch: PropTypes.func
 }
 

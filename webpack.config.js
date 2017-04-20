@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 var BUILD_DIR = path.resolve(__dirname, 'build')
 var APP_DIR = path.resolve(__dirname, 'src')
 
+var API_URL  = "https://app.eurofurence.org/api/"
+
 var config = {
   entry:path.resolve(__dirname, './src/index.jsx'),
   output: {
@@ -34,6 +36,9 @@ var config = {
   plugins: [
     new HtmlWebpackPlugin({
       title: pkg.name
+    }),
+    new webpack.DefinePlugin({
+        'API_URL': JSON.stringify(API_URL)
     })
   ]
 }

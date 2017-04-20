@@ -19,12 +19,14 @@ class DealerList extends React.Component {
 
 DealerList.propTypes = {
   dealers: React.PropTypes.array,
+  images: React.PropTypes.array,
   fetchDealers: React.PropTypes.func
 }
 
 function mapStateToProps (state) {
   return {
-    dealers: state.dealer.dealers
+    dealers: state.dealer.dealers,
+    images: state.image.images
   }
 }
 

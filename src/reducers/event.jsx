@@ -1,12 +1,17 @@
-import {EVENT_ENTRIES_LOADED, CONFERENCE_DAYS_LOADED,CONFERENCE_ROOMS_LOADED, CONFERENCE_TRACKS_LOADED} from '../actions/event'
+import {
+  CONFERENCE_DAYS_LOADED,
+  CONFERENCE_ROOMS_LOADED,
+  CONFERENCE_TRACKS_LOADED,
+  EVENT_ENTRIES_LOADED
+} from '../actions/event'
 
-export default function event(state = {
+export default function event (state = {
   events: [],
   rooms: [],
   days: [],
   tracks: []
-}, action){
-  switch (action.type){
+}, action) {
+  switch (action.type) {
     case EVENT_ENTRIES_LOADED:
       return Object.assign({}, state, {
         events: action.data

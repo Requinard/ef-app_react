@@ -34,7 +34,7 @@ EventList.propTypes = {
   events: PropTypes.arrayOf(PropTypes.shape({
     ConferenceDayId: PropTypes.string
   })),
-  days: PropTypes.arrayOf(PropTupes.shape({
+  days: PropTypes.arrayOf(PropTypes.shape({
     Id: PropTypes.string
   })),
   fetch: PropTypes.func

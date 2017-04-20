@@ -9,8 +9,10 @@ import { hashHistory, Router } from 'react-router'
 import './index.css'
 import routes from './routes'
 import reducers from './reducers/index'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
 
 document.write('<div id="app" />')
 
@@ -20,7 +22,9 @@ const muiTheme = getMuiTheme({
     primary2Color: green500
   }
 })
-const store = createStore(reducers)
+
+const logger = createLogger()
+const store = createStore(reducers, applyMiddleware(thunk, logger))
 
 injectTapEventPlugin()
 

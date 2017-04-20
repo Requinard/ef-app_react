@@ -6,7 +6,7 @@ export default class Overview extends React.Component {
     return(
       <div>
         <AppBar title="Eurofurence" />
-        <p>anyang</p>
+        {this.props.children}
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react'
 import { fetchDealers } from '../../actions/dealer'
 import { connect } from 'react-redux'
 import { DealerItem } from './dealerItem'
+import { Subheader } from 'material-ui'
 
 class DealerList extends React.Component {
   componentDidMount () {
@@ -11,7 +12,9 @@ class DealerList extends React.Component {
   render () {
     return (
       <div>
-        {this.props.dealers.map((dealer, key) => <DealerItem dealer={dealer} key={key}/>)}
+        <Subheader>Dealers</Subheader>
+        {this.props.dealers.sort((a, b) => a.DisplayName > b.DisplayName)
+          .map((dealer, key) => <DealerItem dealer={dealer} key={key}/>)}
       </div>
     )
   }

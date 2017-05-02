@@ -13,6 +13,9 @@ import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
+import { install } from 'offline-plugin/runtime'
+
+install()
 
 document.write('<div id="app" />')
 

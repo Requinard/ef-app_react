@@ -1,15 +1,18 @@
-var webpack = require('webpack')
-var path = require('path')
+const webpack = require('webpack')
+const path = require('path')
 const pkg = require('./package.json')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
-var BUILD_DIR = path.resolve(__dirname, 'build')
-var APP_DIR = path.resolve(__dirname, 'src')
+const BUILD_DIR = path.resolve(__dirname, 'build')
+const APP_DIR = path.resolve(__dirname, 'src')
 
-var API_URL  = "https://app.eurofurence.org/api/"
+const API_URL  = "https://app.eurofurence.org/api/"
 
-var config = {
-  entry:path.resolve(__dirname, './src/index.jsx'),
+const enviroment = process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
+const config = {
+  entry: path.resolve(__dirname, './src/index.jsx'),
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -20,26 +23,35 @@ var config = {
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.jsx?/,
+        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.css?/,
-        loader: ['style-loader','css-loader']
+        loader: ['style-loader', 'css-loader']
       }
     ]
+  },
+  externals: {
+    // Workaround for https://github.com/airbnb/enzyme/issues/47
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: pkg.name
     }),
     new webpack.DefinePlugin({
-        'API_URL': JSON.stringify(API_URL)
-    })
+      'API_URL': JSON.stringify(API_URL),
+      'NODE_ENV': JSON.stringify(enviroment)
+    }),
+    new OfflinePlugin(),
   ]
 }
 

@@ -9,7 +9,7 @@ export function fetchDealers () {
       dispatch({type: DEALERS_FETCHING})
 
       return request
-        .get('https://app.eurofurence.org/api/Dealer')
+        .get(API_URL  + 'Dealers')
         .then(result => {
           dispatch({type: DEALERS_FETCHED, data: result.body})
         })

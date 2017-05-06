@@ -45,7 +45,9 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: pkg.name
+      title: pkg.name,
+      template: require('html-webpack-template'),
+      mobile: true
     }),
     new webpack.DefinePlugin({
       'API_URL': JSON.stringify(API_URL),

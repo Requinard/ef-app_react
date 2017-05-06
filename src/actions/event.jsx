@@ -20,7 +20,7 @@ export function fetch () {
 export function getEventEntries () {
   return (dispatch) => {
     return request
-      .get(API_URL + 'EventEntry')
+      .get(API_URL + 'Events')
       .then(result => dispatch({type: EVENT_ENTRIES_LOADED, data: result.body}))
   }
 }
@@ -28,7 +28,7 @@ export function getEventEntries () {
 export function getConferenceDay () {
   return (dispatch) => {
     return request
-      .get(API_URL + 'EventConferenceDay')
+      .get(API_URL + 'EventConferenceDays')
       .then(result => {
         dispatch({type: CONFERENCE_DAYS_LOADED, data: result.body})
       })
@@ -37,14 +37,14 @@ export function getConferenceDay () {
 
 export function getConferenceTrack () {
   return (dispatch) => {
-    return request.get(API_URL + 'EventConferenceTrack')
+    return request.get(API_URL + 'EventConferenceTracks')
       .then(result => dispatch({type: CONFERENCE_TRACKS_LOADED, data: result.body}))
   }
 }
 
 export function getConferenceRoom () {
   return (dispatch) => {
-    return request.get(API_URL + 'EventConferenceRoom')
+    return request.get(API_URL + 'EventConferenceRooms')
       .then(result => dispatch({type: CONFERENCE_ROOMS_LOADED, data: result.body}))
   }
 }

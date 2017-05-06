@@ -19,7 +19,7 @@ class InfoList extends React.Component {
             <div key={groupKey}>
               <h4>{infoGroup.Name}</h4>
               <Subheader>{infoGroup.Description}</Subheader>
-              {this.props.info.filter(info => info.InfoGroupId === infoGroup.Id)
+              {this.props.info.filter(info => info.KnowledgeGroupId === infoGroup.Id)
                 .map((info, infoKey) => <InfoItem info={info} key={infoKey}/>)}
             </div>
           )}

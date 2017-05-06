@@ -6,7 +6,7 @@ import request from 'superagent-es6-promise'
 export function fetchInfoGroups () {
   return (dispatch) => {
     return request
-      .get(API_URL + 'InfoGroup')
+      .get(API_URL + 'KnowledgeGroups')
       .then(result => {
         dispatch({type: INFO_GROUPS_FETCHED, data: result.body})
       })
@@ -16,7 +16,7 @@ export function fetchInfoGroups () {
 export function fetchInfo () {
   return (dispatch) => {
     return request
-      .get(API_URL + 'Info')
+      .get(API_URL + 'KnowledgeEntries')
       .then(result => dispatch({type: INFO_FETCHED, data: result.body}))
   }
 }

@@ -5,7 +5,10 @@ import request from 'superagent-es6-promise'
 
 export function fetchImages () {
   return (dispatch, getState) => {
-    if(getState().image.images.length === 0) {
+    if(getState().image.isFetching === true){
+      dispatch({type: 'IMAGES_FETCH_IN_PROGRESS'})
+    }
+    else if(getState().image.images.length === 0) {
       dispatch({type: IMAGES_FETCHING})
 
       return request

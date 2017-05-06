@@ -7,7 +7,7 @@ const OfflinePlugin = require('offline-plugin')
 const BUILD_DIR = path.resolve(__dirname, 'build')
 const APP_DIR = path.resolve(__dirname, 'src')
 
-const API_URL  = "https://app.eurofurence.org/api/"
+const API_URL  = "https://app.eurofurence.org/Api/v2/"
 
 const enviroment = process.env.NODE_ENV === 'production' ? 'production' : 'development'
 
@@ -50,8 +50,7 @@ const config = {
     new webpack.DefinePlugin({
       'API_URL': JSON.stringify(API_URL),
       'NODE_ENV': JSON.stringify(enviroment)
-    }),
-    new OfflinePlugin(),
+    })
   ]
 }
 

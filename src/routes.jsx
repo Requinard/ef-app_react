@@ -6,10 +6,12 @@ import {Home} from './components/home'
 import DealerList from './components/dealers/dealerList'
 import InfoList from './components/info/infoList'
 import EventList from './components/event/eventList'
+import Login from './components/auth/login'
 
 export default(
   <Route path="/" component={Overview}>
     <IndexRoute component={Home}/>
+    <Route path="login" components={Login} />
     <Route path="dealer" components={DealerList} />
     <Route path="info" components={InfoList} />
     <Route path="event" components={EventList} />

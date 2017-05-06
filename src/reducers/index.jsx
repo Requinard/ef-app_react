@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux'
 
+import { reducer as form } from 'redux-form';
+
+
 import dealer from './dealer'
 import image from './image'
 import info from './info'
@@ -9,5 +12,6 @@ export default combineReducers({
   dealer,
   image,
   info,
-  event
+  event,
+  form
 })

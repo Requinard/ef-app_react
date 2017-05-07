@@ -13,7 +13,7 @@ export const LoginForm = props => (
         <Field
           name="RegNo"
           component={TextField}
-          type="text"
+          type="number"
           fullWidth
           floatingLabelText="Registration number"
           required

@@ -9,11 +9,12 @@ import { hashHistory, Router } from 'react-router'
 import './index.css'
 import routes from './routes'
 import reducers from './reducers/index'
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import { install } from 'offline-plugin/runtime'
+import persistState from 'redux-localstorage'
 
 install()
 
@@ -27,7 +28,10 @@ const muiTheme = getMuiTheme({
 })
 
 const logger = createLogger()
-const store = createStore(reducers, applyMiddleware(thunk, logger))
+const enhancer = compose(
+  persistState(['auth']),
+)
+const store = createStore(reducers, enhancer, applyMiddleware(thunk, logger))
 
 injectTapEventPlugin()
 

@@ -13,6 +13,10 @@ class Login extends React.Component {
     this.submit = data => this.props.login(data)
   }
 
+  componentDidUpdate () {
+    if (this.props.isLoggedIn) hashHistory.push('/')
+  }
+
   render () {
     return (
       <LoginForm onSubmit={this.submit}/>
@@ -21,11 +25,14 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  login: PropTypes.func
+  login: PropTypes.func,
+  isLoggedIn: PropTypes.bool
 }
 
 function mapStateToProps (state) {
-  return {}
+  return {
+    isLoggedIn: state.auth.isLoggedIn
+  }
 }
 
 export default connect(mapStateToProps, {

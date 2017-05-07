@@ -19,3 +19,7 @@ export function getGivenName () {
 export function getRole () {
   return getDecodedToken().role
 }
+
+export function requestToken(){
+  return `Bearer ${getToken()}`
+}

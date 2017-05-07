@@ -21,7 +21,7 @@ class Overview extends React.Component {
       <div>
         <AppBar title="Eurofurence"
                 onLeftIconButtonTouchTap={() => hashHistory.push('/')}
-                iconElementRight={<FlatButton onTouchTap={() => hashHistory.push('/login/')}>{this.props.username}</FlatButton>}/>
+                iconElementRight={<FlatButton onTouchTap={() => hashHistory.push('/login/')}>{this.props.username || 'Login'}</FlatButton>}/>
         <div style={contentStyle}>
           <div style={contentInner}>
             {this.props.children}

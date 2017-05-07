@@ -14,3 +14,4 @@ export function login (data) {
       .catch(error => dispatch({type: LOGIN_FAILED, error}))
   }
 }
+

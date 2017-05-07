@@ -1,10 +1,10 @@
-import { DEALERS_FETCHING, DEALERS_FETCHED} from '../actions/dealer'
+import { DEALERS_FETCHED, DEALERS_FETCHING } from '../actions/dealer'
 
-export default function dealer(state ={
+export default function dealer (state = {
   isFetching: false,
   dealers: []
-}, action){
-  switch (action.type)  {
+}, action) {
+  switch (action.type) {
     case DEALERS_FETCHING:
       return Object.assign({}, state, {
         isFetching: true

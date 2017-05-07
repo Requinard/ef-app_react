@@ -1,4 +1,5 @@
 import { LOGIN_FAILED, LOGIN_PENDING, LOGIN_SUCCESS } from '../actions/auth'
+
 export default function auth (state = {
   isFetching: false,
   isLoggedIn: false,
@@ -6,7 +7,7 @@ export default function auth (state = {
   jwt: '',
   username: ''
 }, action) {
-  switch (action) {
+  switch (action.type) {
     case LOGIN_PENDING:
       return Object.assign({}, state, {
         isFetching: true,
@@ -15,10 +16,10 @@ export default function auth (state = {
         jwt: '',
         username: ''
       })
-    case  LOGIN_SUCCESS:
-      localStorage.setItem('jwt', action.data.token)
+    case LOGIN_SUCCESS:
+      localStorage.setItem('jwt', action.data.Token)
       return Object.assign({}, state, {
-        isFetchng: false,
+        isFetching: false,
         isLoggedIn: true,
         isFailed: false,
         jwt: action.data.Token,

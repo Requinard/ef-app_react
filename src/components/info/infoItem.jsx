@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardHeader, CardText } from 'material-ui'
+import Markdown from 'react-remarkable'
 
 export const InfoItem = props => (
   <Card>
@@ -7,7 +8,9 @@ export const InfoItem = props => (
                 actAsExpander={true}
                 showExpandableButton={true}/>
     <CardText expandable={true}>
-      {props.info.Text}
+      <Markdown>
+        {props.info.Text}
+      </Markdown>
     </CardText>
   </Card>
 )

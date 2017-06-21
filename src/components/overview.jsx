@@ -4,6 +4,9 @@ import { Navigation } from './navigation'
 import { hashHistory } from 'react-router'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+
+import FirebaseManager from './firebase'
+
 const contentStyle = {
   display: 'flex',
   width: '100%',
@@ -43,6 +46,7 @@ class Overview extends React.Component {
             {this.props.children}
           </div>
         </div>
+        <FirebaseManager />
       </div>
     )
   }

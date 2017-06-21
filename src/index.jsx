@@ -13,13 +13,12 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
-import { install } from 'offline-plugin/runtime'
 import persistState from 'redux-localstorage'
 
-install()
-
+// Add element to add react to
 document.write('<div id="app" />')
 
+// Set up react theme
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: green700,
@@ -27,12 +26,14 @@ const muiTheme = getMuiTheme({
   }
 })
 
+// Initialize redux
 const logger = createLogger()
 const enhancer = compose(
   persistState(['auth']),
 )
 const store = createStore(reducers, enhancer, applyMiddleware(thunk, logger))
 
+// handle tap events
 injectTapEventPlugin()
 
 render(

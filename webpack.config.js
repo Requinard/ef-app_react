@@ -2,10 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const pkg = require('./package.json')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const OfflinePlugin = require('offline-plugin')
 
 const BUILD_DIR = path.resolve(__dirname, 'build')
-const APP_DIR = path.resolve(__dirname, 'src')
 
 const API_URL  = "https://app.eurofurence.org/Api/v2/"
 
@@ -47,7 +45,17 @@ const config = {
     new HtmlWebpackPlugin({
       title: pkg.name,
       template: require('html-webpack-template'),
-      mobile: true
+      mobile: true,
+      inject: false,
+      link: [
+        {
+          href: '/manifest.json',
+          rel: 'manifest'
+        },
+      ],
+      scripts: [
+        path.resolve(__dirname, './src/firebase-messaging-sw.js'),
+      ]
     }),
     new webpack.DefinePlugin({
       'API_URL': JSON.stringify(API_URL),

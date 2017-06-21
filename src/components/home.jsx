@@ -3,12 +3,7 @@ import { GridList, GridTile } from 'material-ui'
 import {hashHistory} from 'react-router'
 
 export const Home = props => (
-  <GridList cols={3}>
-    <GridTile title="Events"
-    onTouchTap={() => hashHistory.push('/event')}/>
-    <GridTile title="Dealers"
-    onTouchTap={() => hashHistory.push('/dealer')}/>
-    <GridTile title="Knowledge"
-    onTouchTap={() => hashHistory.push('/info')}/>
-  </GridList>
+  <div>
+    One day we'll have a nice welcome page here.
+  </div>
 )

@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, FlatButton } from 'material-ui'
+import { Navigation } from './navigation'
 import { hashHistory } from 'react-router'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -16,12 +17,27 @@ const contentInner = {
 }
 
 class Overview extends React.Component {
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+        open: false,
+      };
+
+      this.open = () => this.setState({ open: true });
+      this.close = () => this.setState({ open: false });
+    }
+
   render () {
     return (
       <div>
         <AppBar title="Eurofurence"
-                onLeftIconButtonTouchTap={() => hashHistory.push('/')}
-                iconElementRight={<FlatButton onTouchTap={() => hashHistory.push('/login/')}>{this.props.username || 'Login'}</FlatButton>}/>
+                onLeftIconButtonTouchTap={() => this.state.open ? this.close() : this.open() }
+                iconElementRight={<FlatButton onTouchTap={() => hashHistory.push('/login/')}>{this.props.username || 'Login'}</FlatButton>} />
+        
+        <Navigation open={this.state.open} onRequestClose={this.close} username={this.props.username} />
+
         <div style={contentStyle}>
           <div style={contentInner}>
             {this.props.children}
@@ -36,6 +52,8 @@ Overview.propTypes = {
   isLoggedIn: PropTypes.bool,
   username: PropTypes.string
 }
+
+
 
 function mapStateToProps (state) {
   return {

@@ -47,7 +47,7 @@ export class Navigation extends React.Component {
           />
         
           <Divider />
-          { this.props.username ?  
+          { this.props.isLoggedIn ?  
             <MenuItem leftIcon={<AccountBoxIcon />} primaryText={this.props.username} />
             :
             <MenuItem leftIcon={<AccountBoxIcon />} primaryText="Login" onTouchTap={() => this.pushLocation('/login') } />

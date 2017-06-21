@@ -36,7 +36,7 @@ class Overview extends React.Component {
                 onLeftIconButtonTouchTap={() => this.state.open ? this.close() : this.open() }
                 iconElementRight={<FlatButton onTouchTap={() => hashHistory.push('/login/')}>{this.props.username || 'Login'}</FlatButton>} />
         
-        <Navigation open={this.state.open} onRequestClose={this.close} username={this.props.username} />
+        <Navigation open={this.state.open} onRequestClose={this.close} username={this.props.username} isLoggedIn={this.props.isLoggedIn} />
 
         <div style={contentStyle}>
           <div style={contentInner}>

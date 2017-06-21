@@ -25,11 +25,13 @@ export function startMessaging (){
   return (dispatch) =>  {
     const messaging = firebase.messaging();
 
+    messaging.onMessage(function(payload) {
+      dispatch({type: MESSAGING_RECEIVED, payload})
+      console.log(payload)
+    })
+
     messaging.requestPermission()
       .then(() => {
-        messaging.onMessage(function(payload) {
-          dispatch({type: MESSAGING_RECEIVED, payload})
-        })
         dispatch({type: MESSAGING_STARTED, messaging})
         dispatch(getMessagingToken(messaging))
       })
@@ -44,9 +46,6 @@ export function getMessagingToken (messaging) {
       .then(token => {
         if(token){
           dispatch({type: 'MESSAGING_TOKEN_RECEIVED', token})
-          messaging.onMessage(function(payload) {
-            dispatch({type: MESSAGING_RECEIVED, payload})
-          })
         }
       })
   }

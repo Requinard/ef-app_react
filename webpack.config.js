@@ -32,6 +32,10 @@ const config = {
       {
         test: /\.css?/,
         loader: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.json/,
+        loader: ['json-loader']
       }
     ]
   },
@@ -47,9 +51,9 @@ const config = {
       template: require('html-webpack-template'),
       mobile: true,
       inject: false,
-      link: [
+      links: [
         {
-          href: '/manifest.json',
+          href: 'manifest.json',
           rel: 'manifest'
         },
       ],

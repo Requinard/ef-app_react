@@ -7,6 +7,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import { hashHistory, Router } from 'react-router'
 
 import './index.css'
+import './manifest.json'
 import routes from './routes'
 import reducers from './reducers/index'
 import { applyMiddleware, compose, createStore } from 'redux'

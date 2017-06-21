@@ -1,5 +1,8 @@
 {
+  "manifest_version": 2,
+  "name": "Eurofurence Web App",
   "short_name": "Eurofurence",
-  "Name": "Eurofurence Web App",
+  "version": "1",
+
   "gcm_sender_id": "103953800507"
 }

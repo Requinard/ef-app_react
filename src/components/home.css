@@ -1,0 +1,17 @@
+.home-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+}
+
+.home-announcements {
+    width: 33%;
+    flex: 0 1 auto;
+    flex-flow: column wrap;
+}
+
+.home-event-category {
+    width: 66%;
+    flex: 0 1 auto;
+    flex-flow: column wrap;
+}

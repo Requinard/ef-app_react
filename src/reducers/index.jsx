@@ -8,6 +8,7 @@ import image from './image'
 import info from './info'
 import event from './event'
 import auth from './auth'
+import announcement from './announcements'
 
 export default combineReducers({
   dealer,
@@ -15,5 +16,6 @@ export default combineReducers({
   info,
   event,
   auth,
+  announcement,
   form
 })

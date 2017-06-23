@@ -1,9 +1,16 @@
 import React from 'react'
-import { GridList, GridTile } from 'material-ui'
-import {hashHistory} from 'react-router'
+
+import AnnouncementListWrapper from './announcement/announcementListWrapper'
+import EventList from './event/eventList'
+import './home.css'
 
 export const Home = props => (
-  <div>
-    One day we'll have a nice welcome page here.
+  <div className="home-wrapper">
+    <div className="home-announcements">
+      <AnnouncementListWrapper />
+    </div>
+    <div className="home-event-category">
+      <EventList />
+    </div>
   </div>
 )

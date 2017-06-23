@@ -1,52 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { fetch } from '../../actions/event'
-import { Tab, Tabs } from 'material-ui'
+
 import { EventItem } from './eventItem'
-
-class EventList extends React.Component {
-  componentDidMount () {
-    this.props.fetch()
-  }
-
-  render () {
-    return (
-      <Tabs>
-        {this.props.days.sort((a, b) => a.Date > b.Date)
-          .map((day, dayKey) =>
-            <Tab label={day.Date} key={dayKey}>
-              {this.props.events.filter(event => event.ConferenceDayId === day.Id)
-                .sort((a, b) => a.StartTime < b.StartTime)
-                .map((event, eventKey) =>
-                  <EventItem
-                    event={event}
-                    key={eventKey}/>
-                )}
-            </Tab>
-          )}
-      </Tabs>
-    )
-  }
-}
+export const EventList = props => (
+  <div>
+    {props.events.length === 0 ? <h3>No events here</h3> : props.events
+      .sort((a, b) => a.StartTime < b.StartTime)
+      .map((event, eventKey) =>
+        <EventItem
+          event={event}
+          key={eventKey}/>
+      )}
+  </div>
+)
 
 EventList.propTypes = {
-  events: PropTypes.arrayOf(PropTypes.shape({
-    ConferenceDayId: PropTypes.string
-  })),
-  days: PropTypes.arrayOf(PropTypes.shape({
-    Id: PropTypes.string
-  })),
-  fetch: PropTypes.func
+  events: PropTypes.array
 }
-
-function mapStateToProps (state) {
-  return {
-    events: state.event.events,
-    days: state.event.days
-  }
-}
-
-export default connect(mapStateToProps, {
-  fetch
-})(EventList)

@@ -12,7 +12,7 @@ const contentStyle = {
 }
 
 const contentInner = {
-  width: '960px',
+  width: '1080px',
   flexDirection: 'column'
 }
 

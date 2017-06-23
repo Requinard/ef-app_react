@@ -1,8 +1,10 @@
 import React from 'react'
 
 import AnnouncementListWrapper from './announcement/announcementListWrapper'
-import EventList from './event/eventList'
+
 import './home.css'
+import EventListUpcoming from './event/EventListUpcoming'
+import EventListCurrent from './event/eventListCurrent'
 
 export const Home = props => (
   <div className="home-wrapper">
@@ -10,7 +12,8 @@ export const Home = props => (
       <AnnouncementListWrapper />
     </div>
     <div className="home-event-category">
-      <EventList />
+      <EventListCurrent />
+      <EventListUpcoming />
     </div>
   </div>
 )

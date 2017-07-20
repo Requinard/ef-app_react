@@ -9,6 +9,7 @@ import EventTabsWrapper from './components/event/eventTabsWrapper'
 import Login from './components/auth/login'
 import {EventItemRoute}from './components/event/eventItemRoute'
 import { DealerItemRoute } from './components/dealers/dealerItemRoute'
+import { InfoItemRoute } from './components/info/infoItemRoute'
 
 export default(
   <Route path="/" component={Overview}>
@@ -17,6 +18,7 @@ export default(
     <Route path="dealer" components={DealerList} />
       <Route path="dealer/:id" component={DealerItemRoute} />
     <Route path="info" components={InfoList} />
+    <Route path="info/:id" component={InfoItemRoute} />
     <Route path="event" components={EventTabsWrapper} />
       <Route path="event/:id" component={EventItemRoute} />
   </Route>

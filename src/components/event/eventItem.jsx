@@ -6,7 +6,7 @@ import {hashHistory} from 'react-router'
 import Timestamp from 'react-timestamp'
 
 export const EventItem = props => (
-  <Card>
+  <Card initiallyExpanded={props.expanded || false}>
     <CardHeader title={`${props.event.Title}: ${props.event.Subtitle || ''}`}
                 subtitle={<p><Timestamp time={props.event.StartDateTimeUtc} format="time"/> to <Timestamp time={props.event.EndDateTimeUtc} format="time"/></p>}
                 actAsExpander={true}
@@ -33,5 +33,6 @@ EventItem.propTypes = {
     Title: PropTypes.string,
     SubTitle: PropTypes.string,
     ImageId: PropTypes.string
-  })
+  }),
+  expanded: PropTypes.bool
 }

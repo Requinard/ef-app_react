@@ -26,7 +26,7 @@ class EventItemWrapped extends React.Component {
   render () {
     return (
       <div>
-        {this.state.event === undefined ? <CircularProgress /> : <EventItem event={this.state.event}/>}
+        {this.state.event === undefined ? <CircularProgress /> : <EventItem event={this.state.event} expanded={true}/>}
       </div>
     )
   }
